@@ -19,6 +19,7 @@ tax = subtotal * Tax_Rate
 total = subtotal + tax
 
 # Gives out the input of the users value
+print("RECIEPT")
 print(f"subtotal: ${subtotal:.2f}")
 print(f"Tax (6%): ${tax:2f}")
 print(f"total: ${total:.2f}")
