@@ -1,0 +1,32 @@
+# CIS129 Lab 5
+# Marco Macute
+# 2025/03/11
+
+# Defines the varaibles
+def main():
+    totalBottles = 0  # Total bottles collected
+    totalPayout = 0.0  # Total amount payed with the amount of bottles
+    payoutRate = 0.10  # Rate per bottle collected
+    keepGoing = "y"  # Loop control variable
+
+    # Do while loop to see if the user wants to continue or not
+    while keepGoing.lower() == "y":
+        totalBottles = 0  # Resets the bottle count each week
+
+        # Loops the prompt for 7 days and accumulates the total after
+        for day in range(1, 8):  # Loop for 7 days
+            bottles = int(input(f"Enter number of bottles for day #{day}: "))
+            totalBottles += bottles  # Accumulate total bottles
+
+        # Calculate total payout
+        totalPayout = totalBottles * payoutRate
+
+        # Display and prints the results of the total bottles and payout
+        print("\nThe total number of bottles collected is", totalBottles)
+        print("The total paid out is $", format(totalPayout, ".2f"))
+
+        # Loop to ask if the user wants to keep going or to stop
+        keepGoing = input("\nDo you want to enter another week’s worth of data? (Enter y or n): ")
+
+# Run the program
+main()
