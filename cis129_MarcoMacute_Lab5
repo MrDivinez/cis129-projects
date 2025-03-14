@@ -1,6 +1,11 @@
-# CIS129 Lab 5
-# Marco Macute
-# 2025/03/11
+'''
+    script: CIS129_MarcoMacutee_Lab5
+    action: a. Defines the variables and caculates the total of bottles/payout is made
+            b. A do-while loop to check to make sure if the user wants to continue the data sheet again or not before looping again
+            c. Displays the results of the total of bottles collected and the paid amount afterwards
+    author: Marco Macute
+    date: 2025/03/11
+'''
 
 # Defines the varaibles
 def main():
