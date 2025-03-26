@@ -1,0 +1,41 @@
+'''
+    script: HotdogCookoutLab.py
+    action: a. Gets the input amount of hotdogs and  people
+            b. Shows the minimum packages of hotdogs needed and hot dog buns
+            c. Caculates the hotdogs left over and buns
+    author: Marco Macute
+    date:  3/26/2025
+'''
+
+import math
+
+def get_total_hot_dogs():
+    "Defines the get total of hotdogs"
+    people = int(input("Enter the number of people attending the cookout: "))
+    hot_dogs = int(input("Enter the number of hot dogs for each person: "))
+    return people * hot_dogs
+
+def show_results(dogs_left, min_dogs, buns_left, min_buns):
+    "Displays the results"
+    print(f"Minimum packages of hot dogs needed: {min_dogs}")
+    print(f"Minimum packages of hot dog buns needed: {min_buns}")
+    print(f"Hot dogs left over: {dogs_left}")
+    print(f"Hot dog buns left over: {buns_left}")
+
+def main():
+    "Main function to execute the program"
+    DOGS_PER_PACKAGE = 10
+    BUNS_PER_PACKAGE = 8
+    
+    total_hot_dogs = get_total_hot_dogs()
+    
+    min_dogs = math.ceil(total_hot_dogs / DOGS_PER_PACKAGE)
+    min_buns = math.ceil(total_hot_dogs / BUNS_PER_PACKAGE)
+    
+    dogs_left = (DOGS_PER_PACKAGE - total_hot_dogs % DOGS_PER_PACKAGE) % DOGS_PER_PACKAGE
+    buns_left = (BUNS_PER_PACKAGE - total_hot_dogs % BUNS_PER_PACKAGE) % BUNS_PER_PACKAGE
+    
+    show_results(dogs_left, min_dogs, buns_left, min_buns)
+
+if __name__ == "__main__":
+    main()
