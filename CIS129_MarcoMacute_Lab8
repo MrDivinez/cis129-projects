@@ -1,0 +1,39 @@
+'''
+    script: palindrome_testerMarcoMacuteLab8.py
+    action: a. remove any punctuation, space and force each letter to be lowercase
+            b. creates a stack and places each character into it
+            c. pops the stack and compares from the original string and prints out if the palindrome is true or false
+            
+    author: Marco Macute
+    date: 4/8/2025
+'''
+
+
+def is_palindrome(input_string):
+    # remove any punctuations, space and force it to be lowercase
+    cleaned = ''.join(char.lower() for char in input_string if char.isalnum())
+    print(f"Cleaned input: {cleaned}")
+
+    # stack
+    stack = []
+    
+    # puts the characters into the stack
+    for char in cleaned:
+        print(f"stack.append({char!r})")
+        stack.append(char)
+
+    # pop the stack and compare from the original string
+    for char in cleaned:
+        popped = stack.pop()
+        print(f"Comparing {char!r} with popped {popped!r}")
+        if char != popped:
+            return False
+
+    return True
+
+# examples I use
+if __name__ == "__main__":
+    test_string = "A Chicken, A nuggets, A Chiken Nugget!"
+    result = is_palindrome(test_string)
+    print(f"\nIs it a palindrome? {result}")
+
