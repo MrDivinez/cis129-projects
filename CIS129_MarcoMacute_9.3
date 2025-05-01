@@ -1,0 +1,38 @@
+import csv
+
+# Create a CSV file to place the students full name and exams
+with open('grades.csv', 'w', newline='') as csvfile:
+    fieldnames = ['firstname', 'lastname', 'exam1grade', 'exam2grade', 'exam3grade']
+    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+    
+    # Header
+    writer.writeheader()
+
+    while True:
+        # Gives a prompt to input the students name and last
+        first_name = input("Enter student's first name (or type 'exit' to stop): ")
+        if first_name.lower() == 'exit':
+            break
+
+        last_name = input("Enter student's last name: ")
+        
+        # Gives a prompt to input grades for each exam taken
+        try:
+            grade1 = int(input("Enter grade for Exam 1: "))
+            grade2 = int(input("Enter grade for Exam 2: "))
+            grade3 = int(input("Enter grade for Exam 3: "))
+        except ValueError:
+            print("Invalid input! Please enter valid integer grades.")
+            continue
+        
+        # Makes sure the write the student's record in the CSV file in the right format
+        writer.writerow({'firstname': first_name, 'lastname': last_name, 'exam1grade': grade1, 'exam2grade': grade2, 'exam3grade': grade3})
+
+print("Student records have been saved to 'grades.csv'.")
+
+# Print the contents of the grades.csv file
+print("\nContents of 'grades.csv':")
+with open('grades.csv', 'r') as csvfile:
+    reader = csv.reader(csvfile)
+    for row in reader:
+        print(row)
