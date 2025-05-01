@@ -1,0 +1,31 @@
+#Inputs the grades into a file and saves them as grades.txt
+with open('grades.txt', 'w') as file:
+    grade = input('Enter grade, or type "done" to finish: ')
+    while grade.lower() != 'done':
+        try:
+            file.write(f'{float(grade)}\n')
+        except ValueError:
+            print('Invalid input. Please enter a numeric grade.')
+        grade = input('Enter grade, or type "done" to finish: ')
+
+#Reads the grades from the grades.txt and calculates the average, total and count
+grades = []
+
+with open('grades.txt') as file:
+    for line in file:
+        grades.append(float(line.strip()))
+
+print('\nGrades:')
+for g in grades:
+    print(g)
+
+total = sum(grades)
+count = len(grades)
+
+if count > 0:
+    average = total / count
+    print(f'\nTotal: {total}')
+    print(f'Count: {count}')
+    print(f'Average: {average:.2f}')
+else:
+    print('No grades found.')
