@@ -1,0 +1,57 @@
+'''
+    script: CIS129_MarcoMacute_Lab12
+    action: a. defines the variables
+            b. prompts the user on the pets name, type and age
+            c displays the given input out in format style
+    author: Marco Macute
+    date: 5/7/2025
+'''
+
+# definitions for each pet identification
+class Pet:
+    def __init__(self, name="", pet_type="", age=0):
+        self.__name = name
+        self.__type = pet_type
+        self.__age = age
+
+    def setName(self, name):
+        self.__name = name
+
+    def setType(self, pet_type):
+        self.__type = pet_type
+
+    def setAge(self, age):
+        self.__age = age
+
+    def getName(self):
+        return self.__name
+
+    def getType(self):
+        return self.__type
+
+    def getAge(self):
+        return self.__age
+
+# defines main for the program to run
+def main():
+    # creates pet as a object so animal would be a pet
+    animal = Pet()
+
+    # gets the value from the given input from the user
+    input_name = input("Enter a pet name: ")
+    animal.setName(input_name)
+
+    input_type = input("Enter a pet type: ")
+    animal.setType(input_type)
+
+    input_age = int(input("Enter a pet age: "))
+    animal.setAge(input_age)
+
+    # displays the outcomes of the users value in formatted form
+    print("The pet name is", animal.getName())
+    print("The pet type is", animal.getType())
+    print("The pet age is", animal.getAge())
+
+# calls main
+if __name__ == "__main__":
+    main()
